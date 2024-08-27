@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Partidas</title>
+    <!-- Incluindo Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-white">
+        <a class="navbar-brand text-dark" href="/">Basquete Specs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/consultaTimes/">Times</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/consultaJogadores/">Jogadores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/consultaPartidas/">Partidas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/consultaTreinadores/">Treinadores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/consultaEstatisticas/">Estatísticas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/consultaTorneios/">Torneios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/admin/">Administração</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="mb-4">Lista de Partidas</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Data</th>
+                    <th scope="col">Time da Casa</th>
+                    <th scope="col">Time Visitante</th>
+                    <th scope="col">Pontos da Casa</th>
+                    <th scope="col">Pontos dos Visitantes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for partida in consultaPartidas %}
+                <tr>
+                    <td>{{ partida.dataPartida }}</td>
+                    <td>{{ partida.timeCasa }}</td>
+                    <td>{{ partida.timeVisitante }}</td>
+                    <td>{{ partida.pontosCasa }}</td>
+                    <td>{{ partida.pontosVisitante }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Incluindo jQuery e Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+<style>
+    body {
+        background-image: url(https://images.playground.com/b4778367c20349919aa66fa53bfd6489.jpeg);
+        background-repeat: no-repeat;
+        background-position: center 0px;
+        background-size: cover;
+        backdrop-filter: blur(30px);
+        background-color: rgba(255, 255, 255, 0.5);
+        min-height: 100vh;
+    }
+
+    .container {
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(30px);
+    }
+</style>
